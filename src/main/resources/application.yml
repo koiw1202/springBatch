@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: spring-batch
+  profiles:
+    active: local
+
+
+---
+spring:
+  profiles:
+    active: local
+  datasource:
+    hikari:
+      url: jdbc:mysql://localhost:3306/bookmngr
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: Abcd123@
+
+
+
+
+
+
+
