@@ -1,8 +1,33 @@
 spring:
+<<<<<<< HEAD
   datasource:
 #    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/batch
     username: root
     password: admin
     driver-class-name: com.mysql.cj.jdbc.Driver
+=======
+  application:
+    name: spring-batch
+  profiles:
+    active: local
+
+
+---
+spring:
+  profiles:
+    active: local
+  datasource:
+    hikari:
+      url: jdbc:mysql://localhost:3306/bookmngr
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: Abcd123@
+
+
+
+
+
+
+>>>>>>> origin/master
 
