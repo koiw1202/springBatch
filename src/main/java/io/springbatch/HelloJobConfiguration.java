@@ -22,7 +22,7 @@ import org.springframework.context.annotation.Configuration;
 public class HelloJobConfiguration {
 
     private final JobBuilderFactory jobBuilderFactory;
-    private final StepBuilderFactory stepBuilderFactory;
+    private final StepBuilderFactory stepBuilderFactory ;
 
     public HelloJobConfiguration(JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory) {
         this.jobBuilderFactory = jobBuilderFactory;
