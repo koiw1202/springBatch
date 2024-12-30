@@ -1,5 +1,6 @@
 package io.springbatch;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.StepContribution;
@@ -16,35 +17,29 @@ import org.springframework.context.annotation.Configuration;
  * ===========================================================
  * DATE              AUTHOR             NOTE
  * -----------------------------------------------------------
- * 2024-12-09        koiw1       최초 생성
+ * 2024-12-30        koiw1       최초 생성
  */
+
 @Configuration
-public class HelloJobConfiguration {
+@RequiredArgsConstructor
+public class JobConfiguration {
 
     private final JobBuilderFactory jobBuilderFactory;
-    private final StepBuilderFactory stepBuilderFactory ;
+    private final StepBuilderFactory stepBuilderFactory;
 
-    public HelloJobConfiguration(JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory) {
-        this.jobBuilderFactory = jobBuilderFactory;
-        this.stepBuilderFactory = stepBuilderFactory;
+    @Bean
+    public Job job() {
+        return jobBuilderFactory.get("job")
+            .start(step1())
+            .next(step2())
+            .build();
     }
 
     @Bean
-    public Job helloJob() {
-        return jobBuilderFactory.get("helloJob")
-                .start(helloStep1())
-                .next(helloStep2())
-                .build();
-    }
-
-    @Bean
-    public Step helloStep1() {
-        return stepBuilderFactory.get("helloStep1")
+    public Step step1() {
+        return stepBuilderFactory.get("step1")
                 .tasklet((contribution, chunkContext) -> {
-
-                    System.out.println("========================");
-                    System.out.println(" >> Hello Spring Batch!!");
-                    System.out.println("========================");
+                    System.out.println("step1 was executed");
 
                     return RepeatStatus.FINISHED;
                 })
@@ -52,15 +47,13 @@ public class HelloJobConfiguration {
     }
 
     @Bean
-    public Step helloStep2() {
-        return stepBuilderFactory.get("helloStep2")
+    public Step step2() {
+        return stepBuilderFactory.get("step1")
                 .tasklet((contribution, chunkContext) -> {
 
-                    System.out.println("========================");
-                    System.out.println(" Step2 실행");
-                    System.out.println("========================");
-
+                    System.out.println("step2 was executed");
                     return RepeatStatus.FINISHED;
+
                 })
                 .build();
     }
