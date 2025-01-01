@@ -1,4 +1,4 @@
-package io.springbatch;
+package io.springbatch.jobInstanceTest;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.Job;
@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
  * 2025-01-01        koiw1       최초 생성
  */
 @Component
-public class JobRunner implements ApplicationRunner {
+public class JobRunner1 implements ApplicationRunner {
 
     @Autowired
     JobLauncher jobLauncher;

@@ -1,4 +1,4 @@
-package io.springbatch;
+package io.springbatch.jobInstanceTest;
 
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
