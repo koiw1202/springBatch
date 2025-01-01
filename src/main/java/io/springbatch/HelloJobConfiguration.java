@@ -31,7 +31,7 @@ public class HelloJobConfiguration {
 
     @Bean
     public Job helloJob() {
-        return jobBuilderFactory.get("helloJob")
+        return jobBuilderFactory.get("job")
                 .start(helloStep1())
                 .next(helloStep2())
                 .build();
