@@ -74,7 +74,7 @@ public class FlatFileConfiguration {
                  * 아래 예시는 fixedLengthTokenizer 샘플 코드(문자열의 길이 단위로 파싱)
                  **/
                 .name("flatFile")
-                .resource(new ClassPathResource("/customer.txt"))
+                .resource(new ClassPathResource("C:\\Users\\koiw1\\IdeaProjects\\springBatch\\src\\main\\resources\\customer.csv"))
                 .fieldSetMapper(new BeanWrapperFieldSetMapper<>())
                 .targetType(Customer.class)
                 .linesToSkip(1)
