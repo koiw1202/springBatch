@@ -84,7 +84,6 @@ public class FlatFileConfiguration {
                 .addColumns(new Range(10, 11))
                 .names("name", "year", "age")
                 .build();
-
     }
 
     @Bean
